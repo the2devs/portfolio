@@ -306,6 +306,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     const responsiveStyles = `<style>
+      html { scroll-behavior: smooth; }
+      section[id] { scroll-margin-top: 90px; }
       html, body, #dc-root, .sc-host, .sc-host > div { overflow: visible !important; }
       header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 50 !important; box-shadow: 0 4px 14px rgba(26, 25, 23, .10), 0 1px 3px rgba(26, 25, 23, .06); }
       #dc-root > .sc-host > div { padding-top: 79px !important; }
@@ -533,6 +535,20 @@ document.addEventListener('DOMContentLoaded', async function() {
       if (values[1]) values[1].textContent = '4';
       if (labels[1]) labels[1].textContent = 'Ways to participate';
     }
+    const contactEmail = document.querySelector('#contact a[href^="mailto:"]');
+    const contactPhone = document.querySelector('#contact a[href^="tel:"]');
+    const contactLocation = Array.from(document.querySelectorAll('#contact div')).find(function (element) {
+      return element.textContent.trim().startsWith('Indore, India');
+    });
+    if (contactEmail) {
+      contactEmail.href = 'mailto:twodevs11@gmail.com';
+      contactEmail.textContent = 'twodevs11@gmail.com';
+    }
+    if (contactPhone) {
+      contactPhone.href = 'tel:+917355474464';
+      contactPhone.textContent = '+91 7355474464';
+    }
+    if (contactLocation) contactLocation.textContent = 'Delhi, India - working with clients anywhere';
     const setupContactForm = function () {
       const renderedForm = document.querySelector('#contact form');
       if (!renderedForm) return false;
@@ -568,6 +584,10 @@ document.addEventListener('DOMContentLoaded', async function() {
       document.addEventListener('keydown', toggleNeed);
       updateNeeds(contactForm);
       const submitButton = contactForm.querySelector('button[type="submit"]');
+      const nameInput = contactForm.querySelector('[name="name"]');
+      const phoneInput = contactForm.querySelector('[name="phone"]');
+      if (nameInput) nameInput.required = true;
+      if (phoneInput) phoneInput.required = true;
       const formNote = contactForm.querySelector(':scope > div:last-child > span');
       document.addEventListener('submit', async function (event) {
         const submittedForm = event.target;
@@ -624,6 +644,15 @@ document.addEventListener('DOMContentLoaded', async function() {
       contactObserver.observe(document.body, { childList: true, subtree: true });
       setTimeout(function () { contactObserver.disconnect(); setupContactForm(); }, 3000);
     }
+    const requiredFieldsObserver = new MutationObserver(function () {
+      const form = document.querySelector('#contact form');
+      if (!form) return;
+      const nameInput = form.querySelector('[name="name"]');
+      const phoneInput = form.querySelector('[name="phone"]');
+      if (nameInput) nameInput.required = true;
+      if (phoneInput) phoneInput.required = true;
+    });
+    requiredFieldsObserver.observe(document.body, { childList: true, subtree: true });
     const reorderProjects = function () {
       const projects = document.querySelector('#work');
       const services = document.querySelector('#services');
