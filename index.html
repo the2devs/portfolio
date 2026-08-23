@@ -476,6 +476,54 @@ document.addEventListener('DOMContentLoaded', async function() {
       const slot = document.getElementById(id);
       if (slot) slot.setAttribute('src', imageSources[id]);
     });
+    const projectOne = document.querySelector('#work > div > div:nth-child(2)');
+    if (projectOne) {
+      const tags = projectOne.querySelectorAll('span');
+      const title = projectOne.querySelector('h3');
+      const description = projectOne.querySelector('p');
+      const values = projectOne.querySelectorAll('div[style*="font-size:28px"]');
+      const labels = projectOne.querySelectorAll('div[style*="font-size:13px"]');
+      if (tags[0]) tags[0].textContent = 'E-commerce';
+      if (tags[1]) tags[1].textContent = 'Product discovery';
+      if (title) title.textContent = 'KISNA - a jewellery store built to be browsed';
+      if (description) description.textContent = 'A jewellery storefront for browsing gold and diamond pieces across rings, earrings, pendants, bracelets, gifts and curated collections, with filters by material, gender and price.';
+      if (values[0]) values[0].textContent = 'Gold + diamond';
+      if (labels[0]) labels[0].textContent = 'Core jewellery lines';
+      if (values[1]) values[1].textContent = '10+1';
+      if (labels[1]) labels[1].textContent = 'Monthly jewellery plan';
+    }
+    const projectTwo = document.querySelector('#work > div > div:nth-child(3)');
+    if (projectTwo) {
+      const tags = projectTwo.querySelectorAll('span');
+      const title = projectTwo.querySelector('h3');
+      const description = projectTwo.querySelector('p');
+      const values = projectTwo.querySelectorAll('div[style*="font-size:28px"]');
+      const labels = projectTwo.querySelectorAll('div[style*="font-size:13px"]');
+      if (tags[0]) tags[0].textContent = 'E-commerce';
+      if (tags[1]) tags[1].textContent = 'Omnichannel retail';
+      if (title) title.textContent = 'PC Jeweller - jewellery shopping with confidence';
+      if (description) description.textContent = 'A jewellery storefront that brings curated collections, best sellers and ready-to-ship products into one browseable experience, with material, gender and price navigation plus nearby store discovery.';
+      if (values[0]) values[0].textContent = 'Ready to ship';
+      if (labels[0]) labels[0].textContent = 'Dedicated shopping path';
+      if (values[1]) values[1].textContent = 'Lifetime';
+      if (labels[1]) labels[1].textContent = 'Exchange promise';
+    }
+    const projectThree = document.querySelector('#work > div > div:nth-child(4)');
+    if (projectThree) {
+      const tags = projectThree.querySelectorAll('span');
+      const title = projectThree.querySelector('h3');
+      const description = projectThree.querySelector('p');
+      const values = projectThree.querySelectorAll('div[style*="font-size:28px"]');
+      const labels = projectThree.querySelectorAll('div[style*="font-size:13px"]');
+      if (tags[0]) tags[0].textContent = 'Nonprofit';
+      if (tags[1]) tags[1].textContent = 'Community platform';
+      if (title) title.textContent = 'Satrangi Salaam - organising for social harmony';
+      if (description) description.textContent = 'A public-facing platform for an association in Prayagraj working toward unity, social justice and equal opportunity through community service, education and healthcare.';
+      if (values[0]) values[0].textContent = '3';
+      if (labels[0]) labels[0].textContent = 'Core focus areas';
+      if (values[1]) values[1].textContent = '4';
+      if (labels[1]) labels[1].textContent = 'Ways to participate';
+    }
     const reorderProjects = function () {
       const projects = document.querySelector('#work');
       const services = document.querySelector('#services');
