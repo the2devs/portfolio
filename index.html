@@ -465,6 +465,16 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
+    const imageSources = {
+      'work-1': 'images/kisna.png',
+      'work-2': 'images/pcj.png',
+      'work-3': 'images/satrangiaslaam.png',
+      'portrait-shivam': 'images/shivam.jpg'
+    };
+    Object.keys(imageSources).forEach(function (id) {
+      const slot = document.getElementById(id);
+      if (slot) slot.setAttribute('src', imageSources[id]);
+    });
     const reorderProjects = function () {
       const projects = document.querySelector('#work');
       const services = document.querySelector('#services');
