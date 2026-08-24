@@ -2,7 +2,21 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Bundled Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Make your dream website with The2Devs. Contact us at +91 7355474464. We build custom websites and web applications tailored to your needs.">
+  <meta name="author" content="Shivam Mishraa">
+    <meta property="og:title" content="The2Devs Portfolio">
+    <meta property="og:description" content="Make your dream website. Contact us at +91 7355474464. Custom websites and web applications built by The2Devs.">
+    <meta property="og:url" content="https://the2devs.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The2Devs">
+    <meta property="og:image" content="https://the2devs.github.io/portfolio/images/og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+    <link rel="canonical" href="https://the2devs.github.io/portfolio/">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>The2Devs Portfolio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
@@ -290,6 +304,22 @@ document.addEventListener('DOMContentLoaded', async function() {
     // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
     // The manifest bytes are ours; SRI protects against CDN compromise, not this.
     template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '');
+
+    const seoMetadata = '<meta name="description" content="Make your dream website with The2Devs. We build custom websites and web applications tailored to your needs. Contact us at +91 7355474464.">' +
+      '<meta name="author" content="Shivam Mishraa">' +
+      '<meta property="og:title" content="The2Devs Portfolio">' +
+      '<meta property="og:description" content="Custom websites and web applications built by The2Devs.">' +
+      '<meta property="og:url" content="https://the2devs.github.io/portfolio/">' +
+      '<meta property="og:type" content="website">' +
+      '<meta property="og:site_name" content="The2Devs">' +
+      '<meta property="og:image" content="https://the2devs.github.io/portfolio/images/og.png">' +
+      '<meta property="og:image:type" content="image/png">' +
+      '<meta property="og:image:width" content="300">' +
+      '<meta property="og:image:height" content="300">' +
+      '<link rel="canonical" href="https://the2devs.github.io/portfolio/">' +
+      '<link rel="icon" href="favicon.ico" type="image/x-icon">' +
+      '<title>The2Devs Portfolio</title>';
+    template = template.replace('</head>', seoMetadata + '</head>');
 
     const resourceScript = '<script>window.__resources = ' +
       JSON.stringify(resourceMap).replace(/<\//g, '<\\/') +
